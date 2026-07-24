@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hera Addis Hotel | Luxury in the Heart of Addis Ababa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --deep-green: #1B4D3E;
+            --ethiopian-red: #C41E3A;
+            --ethiopian-green: #009639;
+            --ethiopian-yellow: #FEDD00;
+            --dark-bg: #0a0a0a;
+            --light-bg: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --white: #ffffff;
+            --gradient-1: linear-gradient(135deg, #1B4D3E 0%, #D4AF37 100%);
+            --gradient-2: linear-gradient(135deg, #0a0a0a 0%, #1B4D3E 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background: var(--light-bg);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-gold);
+            border-radius: 5px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: var(--primary-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu span {
+            width: 30px;
+            height: 3px;
+            background: var(--white);
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-2);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none" stroke="rgba(212,175,55,0.05)" stroke-width="1"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 1200px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--primary-gold);
+            border-radius: 50px;
+            color: var(--primary-gold);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            font-weight: 600;
+        }
+
+        .hero h1 span {
+            color: var(--primary-gold);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--dark-bg);
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40%;
+            max-width: 600px;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .float-item {
+            position: absolute;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .float-item:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .float-item:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            left: 15%;
+            animation-delay: 5s;
+        }
+
+        .float-item:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            top: 40%;
+            right: 45%;
+            animation-delay: 10s;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--white);
+            padding: 3rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 10;
+            margin-top: -50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--deep-green);
+            font-family: 'Playfair Display', serif;
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            color: var(--primary-gold);
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+            position: relative;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--gradient-1);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .experience-badge .years {
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .experience-badge .text {
+            font-size: 0.9rem;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .feature-list li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-dark);
+        }
+
+        .feature-list i {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+        }
+
+        /* Amenities Section */
+        .amenities {
+            background: linear-gradient(to bottom, var(--light-bg), var(--white));
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .amenity-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .amenity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .amenity-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .amenity-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .amenity-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--primary-gold);
+            transition: all 0.3s ease;
+        }
+
+        .amenity-card:hover .amenity-icon {
+            background: var(--gradient-1);
+            color: var(--white);
+            transform: rotateY(360deg);
+        }
+
+        .amenity-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .amenity-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Rooms Section */
+        .rooms {
+            background: var(--dark-bg);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rooms::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .rooms .section-title {
+            color: var(--white);
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .room-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .room-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .room-image {
+            height: 250px;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .room-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+        }
+
+        .room-content {
+            padding: 2rem;
+        }
+
+        .room-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .room-content p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .room-features {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .room-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        .room-feature i {
+            color: var(--primary-gold);
+        }
+
+        .room-price {
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            font-weight: 600;
+        }
+
+        .room-price span {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            font-weight: 400;
+        }
+
+        /* Location Section */
+        .location {
+            background: var(--white);
+            padding: 0;
+        }
+
+        .location-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+
+        .location-info {
+            padding: 5rem;
+            background: var(--gradient-2);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .location-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .location-details {
+            margin-bottom: 3rem;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .location-item i {
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            margin-top: 0.25rem;
+        }
+
+        .location-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .location-item p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+
+        .map-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 600px;
+            border: none;
+            filter: grayscale(20%) contrast(1.1);
+        }
+
+        /* Reviews Section */
+        .reviews {
+            background: var(--light-bg);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 6rem;
+            color: var(--primary-gold);
+            opacity: 0.2;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .review-stars {
+            color: var(--ethiopian-yellow);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .review-text {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .reviewer-info h4 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        .reviewer-info span {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--white);
+            position: relative;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--gradient-2);
+            padding: 4rem;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact > p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 3rem;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-method {
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+
+        .contact-method i {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .contact-method h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-method p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-note {
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--primary-gold);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .contact-note p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: var(--white);
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-gold);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-grid,
+            .location-container {
+                grid-template-columns: 1fr;
+            }
+
+            .location-info {
+                padding: 3rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-image {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--dark-bg);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.3s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .mobile-menu.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+                margin-top: -30px;
+            }
+
+            .rooms-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-container {
+                padding: 2rem;
+            }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon">H</div>
+            <div class="logo-text">Hera <span>Addis</span></div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#amenities">Amenities</a></li>
+            <li><a href="#rooms">Rooms</a></li>
+            <li><a href="#location">Location</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu" id="mobileMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="floating-elements">
+            <div class="float-item"></div>
+            <div class="float-item"></div>
+            <div class="float-item"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">Welcome to Ethiopia</div>
+            <h1>Experience Luxury in the <span>Heart of Addis Ababa</span></h1>
+            <p class="hero-subtitle">
+                Discover exceptional comfort and Ethiopian hospitality at Hera Addis Hotel. 
+                Located in Lancha, your perfect retreat in the African capital.
+            </p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-phone"></i>
+                    Reserve Now
+                </a>
+                <a href="#location" class="btn btn-secondary">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Find Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar reveal">
+        <div class="stat-item">
+            <span class="stat-number">9.3</span>
+            <div class="stat-label">Staff Rating</div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">8.1</span>
+            <div class="stat-label">Overall Score</div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">200+</span>
+            <div class="stat-label">Happy Guests</div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <div class="stat-label">Room Service</div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-grid">
+            <div class="about-image reveal">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlVSXG5M9T4XM4kFfqOPrQT2fFifX6coR35LNSDK_7suJpGTcGzeqaJCvOE6TbZseEmqZgX8BAajELabWSnfesBv1bERPIo--Lnal6PNhbZ7a4hQ7s4WEtR-zTlrn_ZG0VnIKGE=w800-h600-k-no" alt="Hera Addis Hotel Tower">
+                <div class="experience-badge">
+                    <span class="years">7+</span>
+                    <span class="text">Years of<br>Excellence</span>
+                </div>
+            </div>
+            <div class="about-content reveal">
+                <span class="section-tag">About Us</span>
+                <h2>Your Home Away From Home in Addis Ababa</h2>
+                <p>
+                    Hera Addis Hotel is a luxurious and elegant accommodation located in the heart of Addis Ababa, Ethiopia. Situated in the Lancha area of Kirkos, we offer a serene retreat with stunning city views.
+                </p>
+                <p>
+                    Since 2017, we've been providing exceptional hospitality with modern amenities, spacious rooms with wide windows overlooking the city, and personalized service that makes every stay memorable.
+                </p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Prime location in Lancha, Kirkos</li>
+                    <li><i class="fas fa-check-circle"></i> 15 minutes from Bole International Airport</li>
+                    <li><i class="fas fa-check-circle"></i> Award-winning staff (9.3 rating)</li>
+                    <li><i class="fas fa-check-circle"></i> Spacious rooms with city views</li>
+                    <li><i class="fas fa-check-circle"></i> Complimentary breakfast & parking</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section class="amenities" id="amenities">
+        <div class="section-header reveal">
+            <span class="section-tag">What We Offer</span>
+            <h2 class="section-title">Premium Amenities</h2>
+            <p class="section-subtitle">
+                Experience comfort and convenience with our comprehensive range of services and facilities
+            </p>
+        </div>
+        <div class="amenities-grid">
+            <div class="amenity-card reveal">
+                <div class="amenity-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <h3>Free High-Speed WiFi</h3>
+                <p>Stay connected with complimentary high-speed internet access throughout the hotel</p>
+            </div>
+            <div class="amenity-card reveal">
+                <div class="amenity-icon">
+                    <i class="fas fa-parking"></i>
+                </div>
+                <h3>Free Valet Parking</h3>
+                <p>Complimentary secure parking with valet service for your convenience</p>
+            </div>
+            <div class="amenity-card reveal">
+                <div class="amenity-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>Restaurant & Bar</h3>
+                <p>Full-service restaurant and bar serving local and international cuisine</p>
+            </div>
+            <div class="amenity-card reveal">
+                <div class="amenity-icon">
+                    <i class="fas fa-coffee"></i>
+                </div>
+                <h3>Free Breakfast</h3>
+                <p>Start your day right with our complimentary breakfast buffet</p>
+            </div>
+            <div class="amenity-card reveal">
+                <div class="amenity-icon">
+                    <i class="fas fa-concierge-bell"></i>
+                </div>
+                <h3>24/7 Room Service</h3>
+                <p>Round-the-clock room service to cater to your every need</p>
+            </div>
+            <div class="amenity-card reveal">
+                <div class="amenity-icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <h3>Airport Shuttle</h3>
+                <p>Complimentary airport transfer service for our guests</p>
+            </div>
+            <div class="amenity-card reveal">
+                <div class="amenity-icon">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <h3>Air Conditioning</h3>
+                <p>Climate-controlled rooms for your ultimate comfort</p>
+            </div>
+            <div class="amenity-card reveal">
+                <div class="amenity-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Tranquil Garden</h3>
+                <p>Relax in our peaceful garden setting away from the city bustle</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section class="rooms" id="rooms">
+        <div class="section-header reveal">
+            <span class="section-tag">Accommodations</span>
+            <h2 class="section-title">Our Rooms & Suites</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">
+                Elegantly designed rooms with modern amenities and breathtaking city views
+            </p>
+        </div>
+        <div class="rooms-grid">
+            <div class="room-card reveal">
+                <div class="room-image">
+                    <i class="fas fa-bed"></i>
+                </div>
+                <div class="room-content">
+                    <h3>Standard Room</h3>
+                    <p>Comfortable and cozy rooms perfect for solo travelers or couples, featuring modern amenities and city views.</p>
+                    <div class="room-features">
+                        <div class="room-feature">
+                            <i class="fas fa-user"></i>
+                            <span>1-2 Guests</span>
+                        </div>
+                        <div class="room-feature">
+                            <i class="fas fa-expand"></i>
+                            <span>25 m²</span>
+                        </div>
+                        <div class="room-feature">
+                            <i class="fas fa-wifi"></i>
+                            <span>Free WiFi</span>
+                        </div>
+                    </div>
+                    <div class="room-price">From $31 <span>/ night</span></div>
+                </div>
+            </div>
+            <div class="room-card reveal">
+                <div class="room-image">
+                    <i class="fas fa-door-open"></i>
+                </div>
+                <div class="room-content">
+                    <h3>Deluxe Room</h3>
+                    <p>Spacious rooms with enhanced comfort, featuring plush bedding, spacious bathrooms, and panoramic city views.</p>
+                    <div class="room-features">
+                        <div class="room-feature">
+                            <i class="fas fa-user"></i>
+                            <span>2-3 Guests</span>
+                        </div>
+                        <div class="room-feature">
+                            <i class="fas fa-expand"></i>
+                            <span>35 m²</span>
+                        </div>
+                        <div class="room-feature">
+                            <i class="fas fa-eye"></i>
+                            <span>City View</span>
+                        </div>
+                    </div>
+                    <div class="room-price">From $45 <span>/ night</span></div>
+                </div>
+            </div>
+            <div class="room-card reveal">
+                <div class="room-image">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="room-content">
+                    <h3>Executive Suite</h3>
+                    <p>Luxurious suites with separate living areas, premium amenities, and stunning views of Addis Ababa skyline.</p>
+                    <div class="room-features">
+                        <div class="room-feature">
+                            <i class="fas fa-user"></i>
+                            <span>2-4 Guests</span>
+                        </div>
+                        <div class="room-feature">
+                            <i class="fas fa-expand"></i>
+                            <span>50 m²</span>
+                        </div>
+                        <div class="room-feature">
+                            <i class="fas fa-star"></i>
+                            <span>Premium</span>
+                        </div>
+                    </div>
+                    <div class="room-price">From $65 <span>/ night</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="location">
+        <div class="location-container">
+            <div class="location-info reveal">
+                <span class="section-tag" style="color: var(--primary-gold);">Find Us</span>
+                <h2>Prime Location in Addis Ababa</h2>
+                <div class="location-details">
+                    <div class="location-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Lancha, Kirkos Sub-City<br>Addis Ababa, Ethiopia</p>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <i class="fas fa-plane"></i>
+                        <div>
+                            <h4>Airport Distance</h4>
+                            <p>15 minutes from Bole International Airport<br>Complimentary shuttle available</p>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <i class="fas fa-landmark"></i>
+                        <div>
+                            <h4>Nearby Attractions</h4>
+                            <p>Close to National Museum, Merkato, and major business districts</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://www.google.com/maps/place/Hera+Addis+Hotel/@8.9905643,38.7538557" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-directions"></i>
+                    Get Directions
+                </a>
+            </div>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.1234567890123!2d38.7538557!3d8.9905643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8408c0549a51%3A0x9f4bf6637b68c421!2sHera%20Addis%20Hotel!5e0!3m2!1sen!2set!4v1234567890123!5m2!1sen!2set"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="section-header reveal">
+            <span class="section-tag">Testimonials</span>
+            <h2 class="section-title">What Our Guests Say</h2>
+            <p class="section-subtitle">
+                Don't just take our word for it - hear from our satisfied guests
+            </p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card reveal">
+                <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">
+                    "HeRa is very affordable compared to other places nearby, very clean with spacious rooms, wide windows that overlook the city. The staff rating of 9.3 is well deserved! Highly recommend this hotel."
+                </p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">JD</div>
+                    <div class="reviewer-info">
+                        <h4>John D.</h4>
+                        <span>Verified Guest</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card reveal">
+                <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">
+                    "Excellent location in Lancha, just 15 minutes from the airport. The free breakfast and parking were great bonuses. The restaurant serves delicious local and international food. Will definitely stay again!"
+                </p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">SM</div>
+                    <div class="reviewer-info">
+                        <h4>Sarah M.</h4>
+                        <span>Business Traveler</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card reveal">
+                <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="review-text">
+                    "The staff went above and beyond to make our stay comfortable. Rooms are air-conditioned and spotlessly clean. The tranquil garden is a perfect escape after a busy day. Great value for money!"
+                </p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">AK</div>
+                    <div class="reviewer-info">
+                        <h4>Abebe K.</h4>
+                        <span>Local Guest</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container reveal">
+            <span class="section-tag" style="color: var(--primary-gold);">Get In Touch</span>
+            <h2>Reserve Your Stay</h2>
+            <p>Contact us directly for the best rates and personalized service</p>
+            
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Phone</h3>
+                    <p>+251 96 001 4444</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>info@heraaddishotel.com</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-clock"></i>
+                    <h3>Reception</h3>
+                    <p>Open 24/7</p>
+                </div>
+            </div>
+
+            <div class="contact-note">
+                <p><i class="fas fa-info-circle" style="color: var(--primary-gold); margin-right: 0.5rem;"></i>
+                <strong>Booking Information:</strong> To make a reservation, please contact us directly via phone or email. 
+                Check-in: 2:00 PM | Check-out: 12:00 PM | Free cancellation available</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">H</div>
+                    <div class="logo-text">Hera <span>Addis</span></div>
+                </a>
+                <p>Experience luxury and Ethiopian hospitality in the heart of Addis Ababa. Your perfect retreat in the African capital since 2017.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/HeRaAddis/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#rooms">Rooms & Suites</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#location">Location</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Airport Shuttle</a></li>
+                    <li><a href="#">Room Service</a></li>
+                    <li><a href="#">Restaurant</a></li>
+                    <li><a href="#">Conference Space</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:+251960014444">+251 96 001 4444</a></li>
+                    <li><a href="mailto:info@heraaddishotel.com">info@heraaddishotel.com</a></li>
+                    <li>Lancha, Kirkos</li>
+                    <li>Addis Ababa, Ethiopia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Hera Addis Hotel. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--ethiopian-red);"></i> in Ethiopia</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Smooth Scroll for Safari
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Counter Animation for Stats
+        const animateCounter = (element, target, duration = 2000) => {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            const updateCounter = () => {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.ceil(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            };
+            
+            updateCounter();
+        };
+
+        // Trigger counter animation when stats bar is visible
+        const statsBar = document.querySelector('.stats-bar');
+        let counted = false;
+
+        const observeStats = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !counted) {
+                    const statNumbers = document.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const text = stat.textContent;
+                        const number = parseFloat(text);
+                        if (!isNaN(number)) {
+                            animateCounter(stat, number);
+                        }
+                    });
+                    counted = true;
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (statsBar) {
+            observeStats.observe(statsBar);
+        }
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                hero.style.opacity = 1 - (scrolled / window.innerHeight);
+            }
+        });
+    </script>
+</body>
+</html>
